@@ -46,14 +46,31 @@ Smart Reviewは、複数の専門AIエージェントを統合した高度なコ
    cp smart-review-config.js ~/.claudecode/commands/
    ```
 
-2. 必要なAIエージェントがすべてインストールされていることを確認:
-   - security-error-xss-analyzer
-   - super-debugger-perfectionist
-   - deep-code-reviewer
-   - project-documentation-updater
-   - code-comment-annotator-ja（オプション）
+2. **エージェントのインストール**（他のPCでも簡単に使用可能）：
 
-3. エージェントパスがシステム設定と一致していることを確認
+   **方法1: 自動インストール（推奨）**
+   ```bash
+   # プロジェクト初期化と同時にエージェントをインストール
+   node init-smart-review.js
+   
+   # または、手動でエージェントのみインストール
+   node install-agents.js
+   ```
+
+   **方法2: 既存エージェントの確認**
+   ```bash
+   # システムテストでエージェント状態を確認
+   claude-code smart-review --test
+   ```
+
+   **必要なエージェント**:
+   - security-error-xss-analyzer（セキュリティ分析）
+   - super-debugger-perfectionist（デバッグ分析）
+   - deep-code-reviewer（コード品質）
+   - project-documentation-updater（ドキュメント）
+   - code-comment-annotator-ja（日本語化・オプション）
+
+3. エージェントが正常にインストールされたことを確認
 
 ## クイックスタート
 
@@ -182,6 +199,41 @@ claude-code smart-review --priority-threshold high
 
 # 複数オプションの組み合わせ
 claude-code smart-review --scope all --target ./src --priority-threshold critical
+```
+
+## 🤖 エージェント管理
+
+### エージェントのインストール
+
+```bash
+# すべてのエージェントをインストール
+npm run install-agents
+
+# または直接実行
+node install-agents.js
+```
+
+### エージェントの管理
+
+```bash
+# インストール済みエージェントの一覧表示
+npm run list-agents
+
+# エージェントのアンインストール
+npm run uninstall-agents
+
+# エージェント状態の確認
+claude-code smart-review --test
+```
+
+### 個別エージェントの制御
+
+```bash
+# 特定エージェントを無効化（環境変数で設定）
+export SMART_REVIEW_DISABLED_AGENTS="project-documentation-updater,code-comment-annotator-ja"
+
+# または .env ファイルで設定
+echo "SMART_REVIEW_DISABLED_AGENTS=project-documentation-updater,code-comment-annotator-ja" >> .env
 ```
 
 ## APIドキュメント

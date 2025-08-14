@@ -5,11 +5,15 @@
   "main": "smart-review-v2.js",
   "bin": {
     "smart-review": "./smart-review-v2.js",
-    "smart-review-init": "./init-smart-review.js"
+    "smart-review-init": "./init-smart-review.js",
+    "smart-review-install-agents": "./install-agents.js"
   },
   "scripts": {
     "start": "node smart-review-v2.js",
     "init": "node init-smart-review.js",
+    "install-agents": "node install-agents.js",
+    "list-agents": "node install-agents.js list",
+    "uninstall-agents": "node install-agents.js uninstall",
     "test": "node --test test/**/*.test.js",
     "lint": "eslint *.js --fix",
     "security-audit": "npm audit --audit-level=moderate",

@@ -74,10 +74,13 @@ class SmartReviewInitializer {
       // 6. package.jsonへのスクリプト追加
       await this.updatePackageJson();
       
-      // 7. 初期TODOファイルの作成
+      // 7. エージェントのインストール
+      await this.installAgents();
+      
+      // 8. 初期TODOファイルの作成
       await this.createInitialTodo();
       
-      // 8. セットアップ完了メッセージ
+      // 9. セットアップ完了メッセージ
       this.showCompletionMessage();
       
     } catch (error) {
@@ -411,6 +414,109 @@ class SmartReviewInitializer {
       
       await fs.writeFile(todoPath, initialTodo);
       console.log('  ✅ TODO.md 作成完了');
+    }
+    
+    console.log();
+  }
+
+  /**
+   * エージェントのインストール
+   */
+  async installAgents() {
+    console.log('🤖 Smart Review エージェントをインストール中...');
+    
+    const agentsPath = path.join(this.projectPath, 'agents');
+    const targetPath = path.join(process.env.HOME || process.env.USERPROFILE, '.claude', 'agents');
+    
+    try {
+      // プロジェクトのagentsディレクトリが存在するか確認
+      await fs.access(agentsPath);
+    } catch {
+      console.log('  ⚠️ プロジェクトにエージェントディレクトリが見つかりません');
+      console.log('  💡 GitHub版を使用している場合は、agents/ ディレクトリを確認してください');
+      return;
+    }
+    
+    try {
+      // ターゲットディレクトリの作成
+      await fs.mkdir(targetPath, { recursive: true });
+      
+      // エージェントファイルの取得
+      const agentFiles = await fs.readdir(agentsPath);
+      const mdFiles = agentFiles.filter(file => file.endsWith('.md'));
+      
+      if (mdFiles.length === 0) {
+        console.log('  ⚠️ エージェントファイルが見つかりません');
+        return;
+      }
+      
+      let installedCount = 0;
+      let updatedCount = 0;
+      let skippedCount = 0;
+      
+      for (const file of mdFiles) {
+        const sourcePath = path.join(agentsPath, file);
+        const targetFilePath = path.join(targetPath, file);
+        const agentName = file.replace('.md', '');
+        
+        try {
+          // 既存ファイルのチェック
+          let needsInstall = false;
+          let isUpdate = false;
+          
+          try {
+            const existingContent = await fs.readFile(targetFilePath, 'utf8');
+            const newContent = await fs.readFile(sourcePath, 'utf8');
+            
+            if (existingContent !== newContent) {
+              needsInstall = true;
+              isUpdate = true;
+            } else {
+              skippedCount++;
+              continue;
+            }
+          } catch {
+            // ファイルが存在しない場合
+            needsInstall = true;
+          }
+          
+          if (needsInstall) {
+            // バックアップの作成（更新の場合）
+            if (isUpdate) {
+              const backupPath = `${targetFilePath}.backup-${Date.now()}`;
+              try {
+                await fs.copyFile(targetFilePath, backupPath);
+              } catch {
+                // バックアップ失敗は警告のみ
+              }
+            }
+            
+            // エージェントファイルのコピー
+            await fs.copyFile(sourcePath, targetFilePath);
+            
+            if (isUpdate) {
+              console.log(`  🔄 ${agentName}: 更新完了`);
+              updatedCount++;
+            } else {
+              console.log(`  ✅ ${agentName}: インストール完了`);
+              installedCount++;
+            }
+          }
+          
+        } catch (error) {
+          console.log(`  ❌ ${agentName}: インストール失敗 - ${error.message}`);
+        }
+      }
+      
+      console.log(`  📊 結果: 新規${installedCount}件、更新${updatedCount}件、スキップ${skippedCount}件`);
+      
+      // インストール先の表示
+      console.log(`  📁 インストール先: ${targetPath}`);
+      
+    } catch (error) {
+      console.error('  ❌ エージェントのインストールに失敗:', error.message);
+      console.log('  💡 手動でエージェントをインストールしてください:');
+      console.log('     node install-agents.js');
     }
     
     console.log();
