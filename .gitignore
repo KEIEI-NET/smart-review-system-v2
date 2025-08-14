@@ -1,0 +1,71 @@
+# 環境設定
+.env
+.env.local
+.env.*.local
+*.env
+
+# 設定ファイル
+.smart-review.json
+smart-review-config.local.js
+config.local.json
+
+# 出力ディレクトリ
+smart-review-results/
+smart-review-test-*/
+
+# ログファイル
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 依存関係
+node_modules/
+jspm_packages/
+
+# IDE設定
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 個人情報を含む可能性のあるファイル
+TODO.md
+ISSUES.md
+*.backup
+*.backup-*
+
+# ビルド出力
+dist/
+build/
+*.min.js
+
+# テストカバレッジ
+coverage/
+.nyc_output/
+
+# 一時ファイル
+temp/
+tmp/
+.cache/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# セキュリティ
+*.pem
+*.key
+*.cert
+*.crt
+private/
+secrets/

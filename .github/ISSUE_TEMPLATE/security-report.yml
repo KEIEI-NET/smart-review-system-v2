@@ -1,0 +1,90 @@
+name: 🔒 セキュリティ脆弱性の報告
+description: セキュリティ脆弱性を報告する（機密情報は含めないでください）
+title: "[SECURITY] "
+labels: ["security", "needs-triage"]
+assignees:
+  - security-team
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ 重要な注意事項
+        
+        **機密情報や詳細な脆弱性情報はこのフォームに記載しないでください。**
+        
+        深刻なセキュリティ脆弱性の場合は、以下の方法で報告してください：
+        - GitHub Security Advisoriesを使用
+        - プロジェクトメンテナーに直接連絡
+        
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 脆弱性の深刻度
+      description: この脆弱性の深刻度を選択してください
+      options:
+        - Low（軽微）
+        - Medium（中程度）
+        - High（高）
+        - Critical（致命的）
+      default: 1
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: category
+    attributes:
+      label: 脆弱性のカテゴリ
+      description: 該当するカテゴリを選択してください
+      options:
+        - コマンドインジェクション
+        - パストラバーサル
+        - XSS（クロスサイトスクリプティング）
+        - 権限昇格
+        - 情報漏洩
+        - サービス拒否（DoS）
+        - その他
+      default: 6
+    validations:
+      required: true
+      
+  - type: textarea
+    id: description
+    attributes:
+      label: 脆弱性の概要
+      description: 脆弱性の概要を記載してください（詳細は避けてください）
+      placeholder: 例：特定の条件下でファイルアクセス制限がバイパスされる可能性があります
+    validations:
+      required: true
+      
+  - type: textarea
+    id: affected-versions
+    attributes:
+      label: 影響を受けるバージョン
+      description: 影響を受けるバージョンを記載してください
+      placeholder: 例：v2.0.0 - v2.0.1
+    validations:
+      required: true
+      
+  - type: textarea
+    id: environment
+    attributes:
+      label: 環境情報
+      description: 問題が発生した環境を記載してください
+      placeholder: |
+        - OS: Windows 11
+        - Node.js: v18.17.0
+        - Smart Review: v2.0.1
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 確認事項
+      options:
+        - label: この報告に機密情報や詳細な攻撃手法は含まれていません
+          required: true
+        - label: 責任ある開示の原則に従います
+          required: true
+        - label: 必要に応じてプライベートチャンネルで詳細を提供できます
+          required: true

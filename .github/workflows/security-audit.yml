@@ -1,0 +1,121 @@
+name: セキュリティ監査
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # 毎日午前9時(JST)に実行
+    - cron: '0 0 * * *'
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: リポジトリのチェックアウト
+      uses: actions/checkout@v4
+      
+    - name: Node.js セットアップ
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 依存関係のインストール
+      run: |
+        if [ -f package.json ]; then
+          npm ci --only=dev
+        else
+          echo "package.json not found, skipping npm install"
+        fi
+        
+    - name: npm audit の実行
+      run: |
+        if [ -f package.json ]; then
+          npm audit --audit-level=moderate || exit_code=$?
+          if [ ${exit_code:-0} -ne 0 ]; then
+            echo "🚨 セキュリティ脆弱性が検出されました"
+            npm audit --json > audit-results.json
+            exit $exit_code
+          fi
+        else
+          echo "package.json not found, skipping npm audit"
+        fi
+        
+    - name: ESLint セキュリティチェック
+      run: |
+        if [ -f package.json ]; then
+          npx eslint *.js --format=json --output-file=eslint-results.json || true
+          echo "ESLint セキュリティチェック完了"
+        fi
+        
+    - name: 機密情報スキャン
+      run: |
+        echo "🔍 機密情報の検索を開始..."
+        
+        # 機密パターンの定義
+        patterns=(
+          "api[_-]?key"
+          "password"
+          "secret"
+          "token"
+          "private[_-]?key"
+          "access[_-]?key"
+          "credential"
+          "auth[_-]?token"
+          "bearer"
+          "ssh-rsa"
+          "-----BEGIN"
+        )
+        
+        found_secrets=false
+        
+        for pattern in "${patterns[@]}"; do
+          if grep -ri --exclude-dir=.git --exclude-dir=node_modules --exclude="*.log" --exclude="*.json" "$pattern" . | grep -v -E "(test|spec|example|redacted)" | head -5; then
+            found_secrets=true
+            echo "⚠️ 機密情報の可能性: $pattern"
+          fi
+        done
+        
+        if [ "$found_secrets" = true ]; then
+          echo "🚨 機密情報が検出された可能性があります"
+          exit 1
+        else
+          echo "✅ 機密情報は検出されませんでした"
+        fi
+        
+    - name: ファイル権限チェック
+      run: |
+        echo "🔍 ファイル権限の検査..."
+        
+        # 実行可能ファイルのチェック
+        find . -type f -executable -not -path "./.git/*" -not -path "./node_modules/*" | while read file; do
+          if [[ "$file" == *.js || "$file" == *.sh ]]; then
+            echo "✅ 実行権限OK: $file"
+          else
+            echo "⚠️ 不要な実行権限: $file"
+          fi
+        done
+        
+        # 書き込み権限の過度なファイル
+        find . -type f -perm /o+w -not -path "./.git/*" -not -path "./node_modules/*" | while read file; do
+          echo "⚠️ 全ユーザー書き込み権限: $file"
+        done
+        
+    - name: セキュリティ結果のアップロード
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-audit-results
+        path: |
+          audit-results.json
+          eslint-results.json
+        retention-days: 30
+        
+    - name: 結果の通知
+      if: failure()
+      run: |
+        echo "🚨 セキュリティ監査で問題が検出されました"
+        echo "詳細は Artifacts からダウンロードしてください"

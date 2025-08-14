@@ -1,0 +1,35 @@
+name: "Smart Review CodeQL 設定"
+
+# 除外パス
+paths-ignore:
+  - "node_modules/**"
+  - "test/**/*.test.js"
+  - "docs/**"
+  - "*.md"
+
+# クエリの設定
+queries:
+  - name: security-experimental
+    uses: security-experimental
+  - name: security-and-quality
+    uses: security-and-quality
+
+# 無効にするクエリ
+disable-default-queries: false
+
+# カスタムクエリパック
+query-filters:
+  - exclude:
+      id: "js/unused-local-variable"
+  - include:
+      tags:
+        - security
+        - correctness
+
+# より詳細な分析のための設定
+database:
+  # デバッグ情報を含める
+  include-generated-code: false
+  
+  # より深い分析
+  advanced-security: true

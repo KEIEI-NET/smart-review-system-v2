@@ -1,0 +1,52 @@
+version: 2
+updates:
+  # npm の依存関係監視
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 10
+    
+    # セキュリティアップデートの優先設定
+    reviewers:
+      - "@security-team"
+    assignees:
+      - "@maintainers"
+      
+    # 脆弱性修正の自動マージ設定
+    allow:
+      - dependency-type: "direct"
+        update-type: "security"
+      - dependency-type: "indirect"
+        update-type: "security"
+    
+    # ラベル設定
+    labels:
+      - "dependencies"
+      - "security"
+      
+    # コミットメッセージのカスタマイズ
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+      
+    # 特定の依存関係を無視
+    ignore:
+      # 一時的に無視したい依存関係がある場合
+      # - dependency-name: "example-package"
+      #   versions: ["1.x"]
+      
+  # GitHub Actions の監視
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "02:00"
+      timezone: "Asia/Tokyo"
+    labels:
+      - "github-actions"
+      - "dependencies"

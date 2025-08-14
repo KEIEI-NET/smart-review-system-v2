@@ -1,0 +1,85 @@
+{
+  "name": "smart-review-system",
+  "version": "2.0.1",
+  "description": "インテリジェントコードレビュー自動化システム - Claude Code エージェントを活用したセキュアなレビューツール",
+  "main": "smart-review-v2.js",
+  "bin": {
+    "smart-review": "./smart-review-v2.js",
+    "smart-review-init": "./init-smart-review.js"
+  },
+  "scripts": {
+    "start": "node smart-review-v2.js",
+    "init": "node init-smart-review.js",
+    "test": "node --test test/**/*.test.js",
+    "lint": "eslint *.js --fix",
+    "security-audit": "npm audit --audit-level=moderate",
+    "security-fix": "npm audit fix",
+    "validate-config": "node -e \"require('./smart-review-config.js').configManager.loadConfig().then(()=>console.log('✅ 設定ファイル検証OK')).catch(e=>console.error('❌ 設定エラー:', e.message))\"",
+    "check-deps": "npx check-dependencies",
+    "pre-commit": "npm run lint && npm run security-audit && npm run validate-config"
+  },
+  "keywords": [
+    "code-review",
+    "security",
+    "claude-code",
+    "automation",
+    "ai-agents",
+    "japanese",
+    "development-tools"
+  ],
+  "author": "Smart Review Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/smart-review-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/smart-review-system/issues"
+  },
+  "homepage": "https://github.com/username/smart-review-system#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-security": "^1.7.1",
+    "check-dependencies": "^1.1.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es2021": true
+    },
+    "extends": [
+      "standard",
+      "plugin:security/recommended"
+    ],
+    "plugins": [
+      "security"
+    ],
+    "rules": {
+      "security/detect-object-injection": "error",
+      "security/detect-non-literal-fs-filename": "warn",
+      "security/detect-child-process": "error",
+      "security/detect-eval-with-expression": "error",
+      "security/detect-no-csrf-before-method-override": "error",
+      "security/detect-buffer-noassert": "error",
+      "security/detect-disable-mustache-escape": "error",
+      "security/detect-pseudoRandomBytes": "error",
+      "security/detect-possible-timing-attacks": "warn"
+    }
+  },
+  "security": {
+    "advisories": {
+      "moderate": "error",
+      "high": "error", 
+      "critical": "error"
+    }
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/username"
+  }
+}
