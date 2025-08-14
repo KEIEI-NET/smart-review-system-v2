@@ -838,11 +838,35 @@ function validatePath(userPath, baseDir) {
 ## サポート
 
 問題、質問、サポートについて：
-- メール: support@example.com
-- ドキュメント: https://docs.example.com
-- イシュートラッカー: https://github.com/example/smart-review/issues
+
+### 🐛 バグ報告・機能要求
+- **GitHub Issues**: https://github.com/KEIEI-NET/smart-review-system/issues
+- **セキュリティ報告**: [SECURITY.md](./SECURITY.md) を参照
+
+### 📚 ドキュメント
+- **メインガイド**: [README.md](./README.md)
+- **エージェント設定**: [AGENTS.md](./AGENTS.md)  
+- **システム運用**: [Smart-Review-SystemGuide.md](./Smart-Review-SystemGuide.md)
+- **貢献ガイド**: [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+### 🤝 貢献・コミュニティ
+- **プルリクエスト**: https://github.com/KEIEI-NET/smart-review-system/pulls
+- **ディスカッション**: https://github.com/KEIEI-NET/smart-review-system/discussions
+- **Wiki**: https://github.com/KEIEI-NET/smart-review-system/wiki
+
+### ⚡ クイックヘルプ
+```bash
+# システムテストでトラブルシューティング
+claude-code smart-review --test
+
+# 対話式メニューでガイド付き実行
+claude-code smart-review
+
+# 詳細ヘルプ表示
+claude-code smart-review --help
+```
 
 ---
 
-*最終更新: 2025-08-13*
-*バージョン: 1.0.0*
+*最終更新: 2025-08-14*
+*バージョン: 2.0.1*

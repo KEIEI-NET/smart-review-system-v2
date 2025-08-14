@@ -264,7 +264,7 @@ class AgentInstaller {
     console.log('');
     
     console.log('🤝 問題が発生した場合:');
-    console.log('  • GitHub Issues: https://github.com/YOUR_USERNAME/smart-review-system/issues');
+    console.log('  • GitHub Issues: https://github.com/KEIEI-NET/smart-review-system/issues');
     console.log('  • SECURITY.md - セキュリティ関連の報告');
     console.log('');
     

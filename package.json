@@ -35,12 +35,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/username/smart-review-system.git"
+    "url": "git+https://github.com/KEIEI-NET/smart-review-system.git"
   },
   "bugs": {
-    "url": "https://github.com/username/smart-review-system/issues"
+    "url": "https://github.com/KEIEI-NET/smart-review-system/issues"
   },
-  "homepage": "https://github.com/username/smart-review-system#readme",
+  "homepage": "https://github.com/KEIEI-NET/smart-review-system#readme",
   "engines": {
     "node": ">=14.0.0"
   },
@@ -84,6 +84,6 @@
   },
   "funding": {
     "type": "github",
-    "url": "https://github.com/sponsors/username"
+    "url": "https://github.com/sponsors/KEIEI-NET"
   }
 }
