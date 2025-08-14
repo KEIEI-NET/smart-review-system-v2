@@ -1,5 +1,8 @@
 # 🚀 Smart Review System デプロイメントガイド
 
+*バージョン: v1.0.1*
+*最終更新: 2025年08月14日 16:15 JST*
+
 ## GitHub リポジトリ作成手順
 
 Smart Review System のローカル開発が完了し、GitHubへのアップロード準備が整いました。
@@ -121,3 +124,12 @@ smart-review-system/
 **リポジトリURL** (作成後): `https://github.com/YOUR_USERNAME/smart-review-system`
 
 このガイドに従って作業すれば、安全で機能的なオープンソースプロジェクトとしてSmart Review Systemを公開できます。
+
+---
+
+*最終更新: 2025年08月14日 16:15 JST*
+*バージョン: v1.0.1*
+
+**更新履歴:**
+- v1.0.1 (2025年08月14日): バージョン管理システム導入、JST統一
+- v1.0.0 (2025年08月13日): 初期デプロイメントガイド作成
