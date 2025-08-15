@@ -1,0 +1,318 @@
+<mxfile host="app.diagrams.net" modified="2025-08-14T08:00:00.000Z" agent="5.0" version="24.7.8" etag="drawio-diagram" type="device">
+  <diagram name="smart-review-secured-flow" id="smart-review-secured-flow">
+    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Smart Review セキュリティ強化版システム フロー図&#xa;smart-review-secured.js" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=16;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="500" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Start -->
+        <mxCell id="start" value="🚀 開始&#xa;Smart Review セキュア実行" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="100" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Security Classes -->
+        <mxCell id="securityclasses" value="🔒 セキュリティクラス初期化&#xa;• SecurityUtils&#xa;• InputValidator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="220" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Security Utils Details -->
+        <mxCell id="securityutils" value="🛡️ SecurityUtils機能&#xa;• パストラバーサル防止&#xa;• 出力ディレクトリ検証&#xa;• エラーメッセージサニタイズ&#xa;• セキュアコマンド実行&#xa;• ホワイトリスト検証" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Input Validator Details -->
+        <mxCell id="inputvalidator" value="✅ InputValidator機能&#xa;• 文字列長制限&#xa;• パターン検証&#xa;• 数値範囲チェック&#xa;• 選択肢検証" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1000" y="200" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Input Validation -->
+        <mxCell id="inputvalidation" value="🔍 入力検証&#xa;validatedArgs構築" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="320" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Validation Process -->
+        <mxCell id="validationprocess" value="⚙️ 検証プロセス&#xa;• scope選択肢検証&#xa;• targetパス検証&#xa;• todo-fileパス検証&#xa;• max-iterations範囲検証&#xa;• output-dir安全検証&#xa;• priority-threshold選択肢検証" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="500" y="320" width="180" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Path Validation Details -->
+        <mxCell id="pathvalidation" value="🛡️ パス検証詳細&#xa;• 絶対パス解決&#xa;• ベースディレクトリチェック&#xa;• 「..」「~」除外&#xa;• 正規化検証" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1000" y="320" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Output Directory Security -->
+        <mxCell id="outputdirsec" value="📁 出力ディレクトリセキュリティ&#xa;allowed: ./smart-review-results&#xa;フォールバック機能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1140" y="320" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent Definition Secure -->
+        <mxCell id="agentdefsec" value="🤖 エージェント定義（セキュア）&#xa;• security-error-xss-analyzer&#xa;• super-debugger-perfectionist&#xa;• deep-code-reviewer&#xa;• project-documentation-updater" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="420" width="200" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Execution Context -->
+        <mxCell id="execcontext" value="📋 実行コンテキスト初期化&#xa;セキュア環境設定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="550" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure Output Directory -->
+        <mxCell id="secureoutputdir" value="🔒 セキュア出力ディレクトリ作成&#xa;SecurityUtils.executeCommand()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="630" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Command Whitelist -->
+        <mxCell id="commandwhitelist" value="⚪ コマンドホワイトリスト&#xa;• git&#xa;• mkdir&#xa;• claude-code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="500" y="630" width="120" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Shell Protection -->
+        <mxCell id="shellprotection" value="🛡️ シェル保護&#xa;• shell=false&#xa;• メタ文字削除&#xa;• 引数サニタイズ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1000" y="630" width="120" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Scope Branch -->
+        <mxCell id="scopebranch" value="🔀 実行モード分岐&#xa;（セキュア）" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="720" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure All Mode -->
+        <mxCell id="secureallmode" value="📊 全体分析モード（セキュア）&#xa;scope = 'all'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="450" y="840" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure Changes Mode -->
+        <mxCell id="securechangesmode" value="🔄 差分修正モード（セキュア）&#xa;scope = 'changes'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1020" y="840" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure Agent Execution -->
+        <mxCell id="secureagentexec" value="🛡️ セキュアエージェント実行&#xa;executeSecureAgent()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="450" y="940" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure Command Build -->
+        <mxCell id="securecommandbuild" value="⚙️ セキュアコマンド構築&#xa;• 引数検証&#xa;• パス正規化&#xa;• エスケープ処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="250" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure Execution -->
+        <mxCell id="secureexecution" value="🔒 セキュア実行&#xa;SecurityUtils.executeCommand()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="250" y="990" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Error Sanitization -->
+        <mxCell id="errorsanitization" value="🧹 エラーサニタイズ&#xa;• パス匿名化&#xa;• 機密情報マスク&#xa;• タイムスタンプ追加" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="250" y="1040" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure File Detection -->
+        <mxCell id="securefiledetect" value="🔍 セキュア変更ファイル検出&#xa;SecurityUtils使用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1020" y="940" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure Git Operations -->
+        <mxCell id="securegitops" value="🔒 セキュアGit操作&#xa;• コマンド検証&#xa;• 引数サニタイズ&#xa;• タイムアウト制御" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1250" y="940" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure Iteration Loop -->
+        <mxCell id="secureiterloop" value="🔄 セキュア反復ループ&#xa;制限付きイテレーション" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1020" y="1020" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Resource Limits -->
+        <mxCell id="resourcelimits" value="⚙️ リソース制限&#xa;• タイムアウト: 60s&#xa;• バッファ: 10MB&#xa;• イテレーション: 1-10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1250" y="1020" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure TODO Generation -->
+        <mxCell id="securetodogen" value="📋 セキュアTODO生成&#xa;サニタイズ済みデータ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="1120" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure File Operations -->
+        <mxCell id="securefileops" value="💾 セキュアファイル操作&#xa;• パス検証&#xa;• 権限チェック&#xa;• 安全な書き込み" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="1200" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Secure Final Report -->
+        <mxCell id="securefinalreport" value="📄 セキュア最終レポート&#xa;機密情報保護" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="1290" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Success End -->
+        <mxCell id="success" value="✅ セキュア完了&#xa;Smart Review Secured 完了" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="1380" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Error Handling -->
+        <mxCell id="errorhandling" value="❌ セキュアエラー処理&#xa;• エラーサニタイズ&#xa;• ログ記録&#xa;• 安全な終了" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1020" y="1290" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Security Features Box -->
+        <mxCell id="securityfeatures" value="🔒 セキュリティ機能強化&#xa;• パストラバーサル防止&#xa;• コマンドインジェクション防止&#xa;• 入力値検証&#xa;• 出力サニタイズ&#xa;• リソース制限&#xa;• ホワイトリスト制御&#xa;• エラー情報保護&#xa;• セキュアファイル操作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="50" y="200" width="180" height="160" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Flow Arrows -->
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="start" target="securityclasses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="securityclasses" target="inputvalidation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="inputvalidation" target="agentdefsec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="agentdefsec" target="execcontext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="execcontext" target="secureoutputdir">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="secureoutputdir" target="scopebranch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="scopebranch" target="secureallmode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow7label" value="all" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000" vertex="1" connectable="0" parent="arrow7">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="scopebranch" target="securechangesmode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow8label" value="changes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000" vertex="1" connectable="0" parent="arrow8">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="secureallmode" target="secureagentexec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="securechangesmode" target="securefiledetect">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="securefiledetect" target="secureiterloop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Convergence to TODO Generation -->
+        <mxCell id="arrow12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="secureagentexec" target="securetodogen">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="1070" />
+              <mxPoint x="720" y="1070" />
+              <mxPoint x="720" y="1145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="secureiterloop" target="securetodogen">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="1080" />
+              <mxPoint x="980" y="1080" />
+              <mxPoint x="980" y="1145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="securetodogen" target="securefileops">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="securefileops" target="securefinalreport">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="securefinalreport" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Error Flow -->
+        <mxCell id="arrowerror" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#b85450;" edge="1" parent="1" source="securefinalreport" target="errorhandling">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrowerrorlabel" value="エラー時" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000" vertex="1" connectable="0" parent="arrowerror">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Detail Arrows -->
+        <mxCell id="arrowdetail1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="securityclasses" target="securityutils">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="securityclasses" target="inputvalidator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="inputvalidation" target="validationprocess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="inputvalidation" target="pathvalidation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="inputvalidation" target="outputdirsec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="secureoutputdir" target="commandwhitelist">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="secureoutputdir" target="shellprotection">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="secureagentexec" target="securecommandbuild">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="securecommandbuild" target="secureexecution">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="secureexecution" target="errorsanitization">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="securefiledetect" target="securegitops">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdetail12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="secureiterloop" target="resourcelimits">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="🔍 凡例&#xa;━━ メインフロー&#xa;┅┅ セキュリティ詳細&#xa;━━ エラー処理&#xa;&#xa;🔒 セキュリティ機能&#xa;🛡️ 検証・保護&#xa;✅ 入力検証&#xa;📊 セキュア分析&#xa;🔄 セキュア反復&#xa;📄 セキュアレポート" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=left;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="50" y="400" width="140" height="160" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

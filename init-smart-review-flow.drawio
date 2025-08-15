@@ -1,0 +1,322 @@
+<mxfile host="app.diagrams.net" modified="2025-08-14T07:15:00.000Z" agent="5.0" version="24.7.8" etag="drawio-diagram" type="device">
+  <diagram name="init-smart-review-flow" id="init-smart-review-flow">
+    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Start -->
+        <mxCell id="start" value="🚀 開始&#xa;Smart Review システム初期化" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Windows Admin Check -->
+        <mxCell id="wincheck" value="🖥️ Windows環境?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admincheck" value="👤 管理者権限チェック&#xa;checkWindowsAdmin()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="430" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="adminwarn" value="⚠️ 権限警告表示&#xa;シンボリックリンク制限" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="250" y="380" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Process Steps -->
+        <mxCell id="step1" value="📋 1. 環境チェック&#xa;checkEnvironment()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="280" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Environment Check Details -->
+        <mxCell id="envcheck1" value="Claude Code&#xa;バージョン確認" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="240" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="envcheck2" value="Git&#xa;存在確認" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="290" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="envcheck3" value="Node.js&#xa;バージョン確認" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="340" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step2" value="📁 2. ディレクトリ作成&#xa;createDirectories()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="380" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Directory Creation Details -->
+        <mxCell id="dirs" value=".claudecode/&#xa;commands/&#xa;smart-review-results/&#xa;.smart-review-cache/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step3" value="🔗 3. グローバルコマンドリンク&#xa;linkGlobalCommands()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="480" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Link Commands Details -->
+        <mxCell id="linkfiles" value="smart-review-v2.js&#xa;smart-review.js&#xa;smart-review-config.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step4" value="⚙️ 4. プロジェクト設定作成&#xa;createProjectConfig()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="580" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Config Creation Details -->
+        <mxCell id="configcheck" value="設定ファイル&#xa;存在チェック" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="570" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="configbackup" value="バックアップ作成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1100" y="540" width="80" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="configcreate" value=".smart-review.json&#xa;新規作成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1100" y="620" width="80" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step5" value="📝 5. .gitignore更新&#xa;updateGitignore()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="680" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step6" value="📦 6. package.json更新&#xa;updatePackageJson()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="780" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Package.json Scripts -->
+        <mxCell id="scripts" value="review スクリプト群&#xa;review:fix&#xa;review:quick&#xa;review:security&#xa;review:test&#xa;review:help" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step7" value="🤖 7. エージェントインストール&#xa;installAgents()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="880" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Agents Installation Process -->
+        <mxCell id="agentscheck" value="agents/&#xa;ディレクトリ存在?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="860" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agentsinstall" value="5つのエージェント&#xa;ファイルをコピー/更新&#xa;結果カウント表示" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1100" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agentswarn" value="⚠️ エージェント&#xa;ディレクトリなし警告" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1100" y="820" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step8" value="📋 8. 初期TODO作成&#xa;createInitialTodo()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="980" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step9" value="🎉 9. 完了メッセージ表示&#xa;showCompletionMessage()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="1080" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Success End -->
+        <mxCell id="success" value="✅ 成功終了&#xa;Smart Review 準備完了" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="1180" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Error Handling -->
+        <mxCell id="errorhandling" value="❌ エラーハンドリング&#xa;process.exit(1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="350" y="1080" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Error End -->
+        <mxCell id="error" value="❌ エラー終了" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="350" y="1180" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Flow Arrows -->
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="start" target="wincheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wincheck" target="admincheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2label" value="Windows" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="arrow2">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wincheck" target="step1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3label" value="その他" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="arrow3">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="admincheck" target="adminwarn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4label" value="権限なし" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="arrow4">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admincheck" target="step1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="510" y="350" />
+              <mxPoint x="620" y="350" />
+              <mxPoint x="620" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow5label" value="権限あり" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="arrow5">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="adminwarn" target="step1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="450" />
+              <mxPoint x="620" y="450" />
+              <mxPoint x="620" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Main Steps Flow -->
+        <mxCell id="arrow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step3" target="step4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step4" target="step5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step5" target="step6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step6" target="step7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step7" target="step8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step8" target="step9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step9" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Detail Arrows -->
+        <mxCell id="arrowenv1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="step1" target="envcheck1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowenv2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="step1" target="envcheck2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowenv3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="step1" target="envcheck3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowdir" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="step2" target="dirs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowlink" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="step3" target="linkfiles">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowconfig1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="step4" target="configcheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowconfig2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="configcheck" target="configbackup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrowconfig2label" value="存在" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="arrowconfig2">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrowconfig3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="configcheck" target="configcreate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrowconfig3label" value="なし" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="arrowconfig3">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrowscripts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="step6" target="scripts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowagents1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="step7" target="agentscheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrowagents2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="agentscheck" target="agentsinstall">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrowagents2label" value="存在" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="arrowagents2">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrowagents3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="agentscheck" target="agentswarn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrowagents3label" value="なし" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="arrowagents3">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Error Flow -->
+        <mxCell id="arrowerror1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#b85450;dashed=1;" edge="1" parent="1" source="step1" target="errorhandling">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="310" />
+              <mxPoint x="600" y="1110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrowerror2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="errorhandling" target="error">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="🔍 凡例&#xa;━━ メインフロー&#xa;┅┅ 詳細処理&#xa;━━ エラー処理&#xa;&#xa;📋 処理ステップ&#xa;◊ 条件分岐&#xa;⚠️ 警告・エラー" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=left;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="50" y="40" width="120" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Smart Review 初期化プログラム フロー図&#xa;init-smart-review.js" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=16;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="200" y="50" width="400" height="40" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

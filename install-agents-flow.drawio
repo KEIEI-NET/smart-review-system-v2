@@ -1,0 +1,208 @@
+<mxfile host="app.diagrams.net" modified="2025-08-14T09:00:00.000Z" agent="5.0" version="24.7.8" etag="install-agents-flow" type="device">
+  <diagram name="install-agents-flow" id="install-agents-flow">
+    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Agent Installer プログラム フロー図&#xa;install-agents.js" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=16;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="400" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Start -->
+        <mxCell id="start" value="🚀 開始&#xa;Agent Installer" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Command Parse -->
+        <mxCell id="cmdparse" value="⚙️ コマンド引数解析&#xa;process.argv[2]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="400" y="240" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Command Switch -->
+        <mxCell id="cmdswitch" value="コマンド分岐" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="400" y="340" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Install Command -->
+        <mxCell id="install" value="📥 install / undefined&#xa;(デフォルト)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="150" y="480" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- List Command -->
+        <mxCell id="list" value="📋 list&#xa;エージェント一覧表示" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="350" y="480" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Uninstall Command -->
+        <mxCell id="uninstall" value="🗑️ uninstall&#xa;エージェント削除" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="480" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Help Command -->
+        <mxCell id="help" value="❓ --help / -h&#xa;ヘルプ表示" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="750" y="480" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Install Process Steps -->
+        <mxCell id="installstep1" value="🔍 1. 環境チェック&#xa;checkEnvironment()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="150" y="580" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="installstep2" value="📁 2. ターゲット作成&#xa;createTargetDirectory()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="150" y="660" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="installstep3" value="📋 3. エージェントコピー&#xa;copyAgents()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="150" y="740" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="installstep4" value="🔍 4. インストール確認&#xa;verifyInstallation()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="150" y="820" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="installstep5" value="🎉 5. 完了メッセージ&#xa;showCompletionMessage()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="150" y="900" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- List Process -->
+        <mxCell id="liststep1" value="📋 エージェント一覧&#xa;listAgents()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="350" y="580" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="liststep2" value="📄 ファイル読み込み&#xa;agents/*.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="350" y="660" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="liststep3" value="🖥️ 一覧表示&#xa;console.log()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="350" y="740" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Uninstall Process -->
+        <mxCell id="uninstallstep1" value="🗑️ エージェント削除&#xa;uninstall()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="580" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uninstallstep2" value="📁 ファイル削除&#xa;fs.unlink()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="660" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uninstallstep3" value="📊 削除カウンター&#xa;removed count" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="740" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Success End -->
+        <mxCell id="success" value="✅ 成功終了&#xa;プロセス完了" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="400" y="1000" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Error End -->
+        <mxCell id="error" value="❌ エラー終了&#xa;process.exit(1)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="900" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Flow Arrows -->
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="start" target="cmdparse">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmdparse" target="cmdswitch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Command Branches -->
+        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmdswitch" target="install">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmdswitch" target="list">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmdswitch" target="uninstall">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmdswitch" target="help">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Install Process Flow -->
+        <mxCell id="arrow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="install" target="installstep1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="installstep1" target="installstep2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="installstep2" target="installstep3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="installstep3" target="installstep4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="installstep4" target="installstep5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- List Process Flow -->
+        <mxCell id="arrow12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="list" target="liststep1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="liststep1" target="liststep2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="liststep2" target="liststep3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Uninstall Process Flow -->
+        <mxCell id="arrow15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uninstall" target="uninstallstep1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uninstallstep1" target="uninstallstep2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uninstallstep2" target="uninstallstep3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Convergence to Success -->
+        <mxCell id="arrow18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="installstep5" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="liststep3" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uninstallstep3" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="help" target="success">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="825" y="980" />
+              <mxPoint x="500" y="980" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="🔍 凡例&#xa;━━ メインフロー&#xa;📥 インストール&#xa;📋 一覧表示&#xa;🗑️ アンインストール&#xa;❓ ヘルプ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=left;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="120" height="100" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
