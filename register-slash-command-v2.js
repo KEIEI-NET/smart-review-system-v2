@@ -5,191 +5,23 @@
 const path = require('path');
 const fs = require('fs').promises;
 const os = require('os');
-const crypto = require('crypto');
 const { execFile } = require('child_process');
 const { promisify } = require('util');
 const execFileAsync = promisify(execFile);
 
-/**
- * セキュリティユーティリティクラス
- */
-class SecurityUtils {
-  /**
-   * パスの検証とサニタイズ
-   */
-  static validatePath(basePath, targetPath = '') {
-    if (!basePath || typeof basePath !== 'string') {
-      throw new Error('Invalid base path provided');
-    }
+// 共通ユーティリティモジュールをインポート
+const {
+  SecurityUtils,
+  FileOperations,
+  ErrorHandler,
+  SystemUtils
+} = require('./lib/common-utils');
 
-    const resolved = path.resolve(basePath, targetPath);
-    const normalized = path.normalize(resolved);
-    const base = path.resolve(basePath);
+// SecurityUtilsクラスは共通モジュールから使用
 
-    // パストラバーサル攻撃の検出
-    if (!normalized.startsWith(base)) {
-      throw new Error(`Path traversal detected: ${targetPath}`);
-    }
+// FileOperationsクラスは共通モジュールから使用
 
-    // 危険な文字のチェック
-    if (/[<>"|?*\0]/.test(targetPath)) {
-      throw new Error(`Invalid characters in path: ${targetPath}`);
-    }
-
-    // Windowsの予約名チェック
-    const basename = path.basename(normalized);
-    const reservedNames = /^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/i;
-    if (reservedNames.test(basename)) {
-      throw new Error(`Reserved name detected: ${basename}`);
-    }
-
-    return normalized;
-  }
-
-  /**
-   * エラーメッセージのサニタイズ
-   */
-  static sanitizeError(error) {
-    let message = error.message || String(error);
-    
-    // パス情報の匿名化
-    message = message.replace(/\/home\/[^\/\s]+/g, '/home/<user>');
-    message = message.replace(/C:\\Users\\[^\\]+/g, 'C:\\Users\\<user>');
-    message = message.replace(/\/Users\/[^\/\s]+/g, '/Users/<user>');
-    
-    // 機密情報のマスキング
-    message = message.replace(/api[_-]?key[:\s]*['"]?[\w\-]+/gi, 'api_key=<masked>');
-    message = message.replace(/password[:\s]*['"]?[\w\-]+/gi, 'password=<masked>');
-    message = message.replace(/token[:\s]*['"]?[\w\-]+/gi, 'token=<masked>');
-    
-    return message;
-  }
-
-  /**
-   * ファイルの整合性チェック
-   */
-  static async calculateFileHash(filePath) {
-    const content = await fs.readFile(filePath);
-    return crypto.createHash('sha256').update(content).digest('hex');
-  }
-}
-
-/**
- * ファイル操作ユーティリティクラス
- */
-class FileOperations {
-  /**
-   * アトミックなファイルコピー
-   */
-  static async atomicCopy(source, target) {
-    const tempFile = `${target}.tmp.${process.pid}.${Date.now()}`;
-    
-    try {
-      // ソースファイルの検証
-      const stats = await fs.stat(source);
-      if (!stats.isFile()) {
-        throw new Error('Source is not a file');
-      }
-      if (stats.size === 0) {
-        throw new Error('Source file is empty');
-      }
-      if (stats.size > 10 * 1024 * 1024) { // 10MB制限
-        throw new Error(`File too large: ${stats.size} bytes`);
-      }
-
-      // コピー実行
-      await fs.copyFile(source, tempFile);
-      
-      // 整合性チェック
-      const sourceHash = await SecurityUtils.calculateFileHash(source);
-      const tempHash = await SecurityUtils.calculateFileHash(tempFile);
-      
-      if (sourceHash !== tempHash) {
-        throw new Error('File integrity check failed');
-      }
-
-      // アトミックな置き換え
-      await fs.rename(tempFile, target);
-      
-      return { success: true, hash: sourceHash };
-      
-    } catch (error) {
-      // クリーンアップ
-      try {
-        await fs.unlink(tempFile);
-      } catch {}
-      throw error;
-    }
-  }
-
-  /**
-   * バックアップ付きコピー
-   */
-  static async copyWithBackup(source, target) {
-    try {
-      // 既存ファイルのバックアップ
-      await fs.access(target);
-      const backupPath = `${target}.backup.${Date.now()}`;
-      await fs.rename(target, backupPath);
-      console.log(`    📦 バックアップ作成: ${path.basename(backupPath)}`);
-    } catch {
-      // ファイルが存在しない場合は無視
-    }
-
-    return this.atomicCopy(source, target);
-  }
-
-  /**
-   * ディレクトリの安全な作成
-   */
-  static async createDirectorySafe(dirPath) {
-    try {
-      await fs.mkdir(dirPath, { recursive: true, mode: 0o755 });
-      
-      // 権限の確認
-      await fs.access(dirPath, fs.constants.W_OK | fs.constants.R_OK);
-      
-      return true;
-    } catch (error) {
-      if (error.code === 'EACCES') {
-        throw new Error(`Permission denied: ${dirPath}`);
-      }
-      throw error;
-    }
-  }
-}
-
-/**
- * エラーハンドラークラス
- */
-class ErrorHandler {
-  static handle(error, context = '') {
-    const sanitized = SecurityUtils.sanitizeError(error);
-    
-    console.error(`\n❌ エラーが発生しました: ${sanitized}`);
-    
-    // エラーコードに応じたヒント表示
-    if (error.code === 'EACCES') {
-      console.error('💡 ヒント: 管理者権限で実行してください');
-    } else if (error.code === 'ENOENT') {
-      console.error('💡 ヒント: 必要なファイルが見つかりません');
-    } else if (error.code === 'ENOSPC') {
-      console.error('💡 ヒント: ディスク容量が不足しています');
-    } else if (error.code === 'EBUSY') {
-      console.error('💡 ヒント: ファイルが使用中です。しばらく待ってから再試行してください');
-    }
-
-    if (context) {
-      console.error(`📍 コンテキスト: ${context}`);
-    }
-
-    // デバッグモードの場合はスタックトレースを表示
-    if (process.env.DEBUG) {
-      console.error('\n[Debug Stack Trace]');
-      console.error(error.stack);
-    }
-  }
-}
+// ErrorHandlerクラスは共通モジュールから使用
 
 /**
  * Claude Code スラッシュコマンド登録ツール（改良版）
@@ -204,7 +36,7 @@ class SlashCommandRegistrar {
     // セキュアなパス設定
     try {
       this.projectPath = SecurityUtils.validatePath(process.cwd());
-      this.homeDir = os.homedir(); // os.homedir()を使用（より信頼性が高い）
+      this.homeDir = SystemUtils.getHomeDir(); // 共通モジュールから取得
       
       // Claude Codeのコマンドディレクトリ
       this.globalCommandsPath = SecurityUtils.validatePath(

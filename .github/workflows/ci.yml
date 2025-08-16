@@ -1,0 +1,268 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ created ]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [14.x, 16.x, 18.x, 20.x]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run linter
+      run: npm run lint
+    
+    - name: Run tests
+      run: npm test
+    
+    - name: Run security audit
+      run: npm run security-audit
+      continue-on-error: true
+    
+    - name: Validate configuration
+      run: npm run validate-config
+    
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results-${{ matrix.os }}-node${{ matrix.node-version }}
+        path: |
+          test-results/
+          coverage/
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Run Trivy security scan
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+    
+    - name: Upload Trivy results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
+    
+    - name: Check for secrets
+      uses: trufflesecurity/trufflehog@main
+      with:
+        path: ./
+        base: ${{ github.event.repository.default_branch }}
+        head: HEAD
+
+  codeql:
+    name: CodeQL Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: javascript
+    
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+
+  build:
+    name: Build and Package
+    needs: [test, security]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Calculate file hashes
+      run: |
+        echo "Calculating SHA-256 hashes..."
+        find . -type f -name "*.js" -o -name "*.json" -o -name "*.md" | while read file; do
+          sha256sum "$file" >> checksums.txt
+        done
+    
+    - name: Update version manifest
+      run: |
+        node -e "
+        const fs = require('fs');
+        const path = require('path');
+        const crypto = require('crypto');
+        
+        const manifest = require('./version-manifest.json');
+        const pkg = require('./package.json');
+        
+        // Update version
+        manifest.version = pkg.version;
+        manifest.lastUpdated = new Date().toISOString();
+        
+        // Update component hashes
+        const updateHash = (filePath) => {
+          try {
+            const content = fs.readFileSync(filePath);
+            return crypto.createHash('sha256').update(content).digest('hex');
+          } catch {
+            return 'file_not_found';
+          }
+        };
+        
+        // Update command hashes
+        for (const [file, info] of Object.entries(manifest.components.commands)) {
+          info.sha256 = updateHash(file);
+          info.lastModified = new Date().toISOString();
+        }
+        
+        // Update agent hashes
+        for (const [file, info] of Object.entries(manifest.components.agents)) {
+          info.sha256 = updateHash(path.join('agents', file));
+          info.lastModified = new Date().toISOString();
+        }
+        
+        // Save updated manifest
+        fs.writeFileSync('version-manifest.json', JSON.stringify(manifest, null, 2));
+        console.log('Version manifest updated');
+        "
+    
+    - name: Create release package
+      run: |
+        mkdir -p release
+        cp -r lib agents *.js *.json *.md release/
+        cd release
+        tar -czf ../smart-review-system-${{ github.sha }}.tar.gz *
+        cd ..
+    
+    - name: Upload release artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-package
+        path: smart-review-system-*.tar.gz
+
+  deploy:
+    name: Deploy Documentation
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+    
+    - name: Generate documentation
+      run: |
+        npm install -g jsdoc
+        jsdoc -c jsdoc.json -d docs/ || true
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+        publish_branch: gh-pages
+
+  release:
+    name: Create Release
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Download release artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: release-package
+    
+    - name: Create changelog
+      run: |
+        echo "## What's Changed" > CHANGELOG.md
+        git log --pretty=format:"* %s (%h)" $(git describe --tags --abbrev=0)..HEAD >> CHANGELOG.md
+    
+    - name: Upload Release Assets
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          smart-review-system-*.tar.gz
+          CHANGELOG.md
+        body_path: CHANGELOG.md
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    name: Notification
+    needs: [test, security, build]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Check job status
+      id: check
+      run: |
+        if [[ "${{ needs.test.result }}" == "failure" || "${{ needs.security.result }}" == "failure" || "${{ needs.build.result }}" == "failure" ]]; then
+          echo "status=failure" >> $GITHUB_OUTPUT
+        else
+          echo "status=success" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Send notification
+      if: steps.check.outputs.status == 'failure'
+      run: |
+        echo "Pipeline failed! Check the logs for details."
+        # ここにSlackやメール通知を追加可能

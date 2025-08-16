@@ -22,12 +22,15 @@
     "list-agents": "node install-agents.js list",
     "uninstall-agents": "node install-agents.js uninstall",
     "test": "node --test test/**/*.test.js",
-    "lint": "eslint *.js --fix",
+    "test:unit": "node --test test/common-utils.test.js",
+    "test:integration": "node --test test/integration.test.js",
+    "test:coverage": "node --test --experimental-test-coverage test/**/*.test.js",
+    "lint": "eslint *.js lib/*.js --fix",
     "security-audit": "npm audit --audit-level=moderate",
     "security-fix": "npm audit fix",
     "validate-config": "node -e \"require('./smart-review-config.js').configManager.loadConfig().then(()=>console.log('✅ 設定ファイル検証OK')).catch(e=>console.error('❌ 設定エラー:', e.message))\"",
     "check-deps": "npx check-dependencies",
-    "pre-commit": "npm run lint && npm run security-audit && npm run validate-config"
+    "pre-commit": "npm run lint && npm run test && npm run security-audit && npm run validate-config"
   },
   "keywords": [
     "code-review",

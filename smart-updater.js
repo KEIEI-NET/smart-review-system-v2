@@ -7,13 +7,21 @@ const fs = require('fs').promises;
 const crypto = require('crypto');
 const os = require('os');
 
+// 共通ユーティリティモジュールをインポート
+const {
+  SecurityUtils,
+  FileOperations,
+  VersionUtils,
+  SystemUtils
+} = require('./lib/common-utils');
+
 /**
  * バージョン管理・自動更新システム
  */
 class SmartUpdater {
   constructor() {
     this.projectPath = process.cwd();
-    this.homeDir = os.homedir();
+    this.homeDir = SystemUtils.getHomeDir();
     
     // パス設定
     this.manifestPath = path.join(this.projectPath, 'version-manifest.json');
@@ -308,18 +316,7 @@ class SmartUpdater {
    * バージョン番号の比較
    */
   compareVersionNumbers(v1, v2) {
-    const parts1 = v1.split('.').map(Number);
-    const parts2 = v2.split('.').map(Number);
-    
-    for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
-      const p1 = parts1[i] || 0;
-      const p2 = parts2[i] || 0;
-      
-      if (p1 > p2) return 1;
-      if (p1 < p2) return -1;
-    }
-    
-    return 0;
+    return VersionUtils.compareVersions(v1, v2);
   }
 
   /**
@@ -446,8 +443,7 @@ class SmartUpdater {
    * ファイルハッシュの計算
    */
   async calculateFileHash(filePath) {
-    const content = await fs.readFile(filePath);
-    return crypto.createHash('sha256').update(content).digest('hex');
+    return SecurityUtils.calculateFileHash(filePath);
   }
 
   /**
@@ -601,9 +597,7 @@ class SmartUpdater {
    * ファイルサイズのフォーマット
    */
   formatSize(bytes) {
-    if (bytes < 1024) return `${bytes} B`;
-    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    return SystemUtils.formatFileSize(bytes);
   }
 
   /**

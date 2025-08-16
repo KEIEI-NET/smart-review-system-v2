@@ -8,6 +8,13 @@ const { execFile } = require('child_process');
 const { promisify } = require('util');
 const execFileAsync = promisify(execFile);
 
+// 共通ユーティリティモジュールをインポート
+const {
+  SecurityUtils,
+  SystemUtils,
+  FileOperations
+} = require('./lib/common-utils');
+
 /**
  * エージェントインストーラークラス
  */
@@ -15,7 +22,7 @@ class AgentInstaller {
   constructor() {
     this.projectPath = process.cwd();
     this.agentsPath = path.join(this.projectPath, 'agents');
-    this.targetPath = path.join(process.env.HOME || process.env.USERPROFILE, '.claude', 'agents');
+    this.targetPath = path.join(SystemUtils.getHomeDir(), '.claude', 'agents');
   }
 
   /**
