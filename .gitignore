@@ -69,3 +69,9 @@ Desktop.ini
 *.crt
 private/
 secrets/
+
+# MCP設定（GitHubトークンを含む）
+.mcp.json
+
+# Claude設定（ローカル設定）
+.claude/settings.local.json

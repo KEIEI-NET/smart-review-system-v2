@@ -1,11 +1,13 @@
-# Smart Review - インテリジェントコードレビュー自動化システム
+# Smart Review - Claude Code スラッシュコマンド & インテリジェントコードレビュー自動化システム
 
-*バージョン: v2.0.2*
-*最終更新: 2025年08月14日 16:15 JST*
+*バージョン: v2.1.0*
+*最終更新: 2025年08月16日 10:30 JST*
 
 ## 概要
 
-Smart Reviewは、複数の専門AIエージェントを統合した高度なコードレビュー自動化ツールです。包括的なコード分析、セキュリティ監査、バグ検出、ドキュメントレビューを実行し、プロジェクト全体のスキャンと変更箇所のインクリメンタルレビューの両方をサポートします。自動修正機能も備えています。
+Smart Reviewは、Claude Code CLIのスラッシュコマンドとして動作する、複数の専門AIエージェントを統合した高度なコードレビュー自動化ツールです。包括的なコード分析、セキュリティ監査、バグ検出、ドキュメントレビューを実行し、プロジェクト全体のスキャンと変更箇所のインクリメンタルレビューの両方をサポートします。自動修正機能も備えています。
+
+🆕 **他のPCでも簡単に使える**: スラッシュコマンドとエージェントを自動登録する機能により、どのマシンでも同じ環境を簡単に構築できます。
 
 ## 目次
 
@@ -39,50 +41,76 @@ Smart Reviewは、複数の専門AIエージェントを統合した高度なコ
 - Node.js 14.0以上
 - Git（変更検出機能用）
 - Claude Code CLIがインストールおよび設定済み
-- 設定済みAIエージェントへのアクセス
 
-### セットアップ
+### クイックセットアップ（推奨）
 
-1. 必要なファイルをClaude Codeコマンドディレクトリに配置:
-   ```bash
-   cp smart-review.js ~/.claudecode/commands/
-   cp smart-review-config.js ~/.claudecode/commands/
-   ```
+```bash
+# リポジトリをクローン
+git clone https://github.com/KEIEI-NET/smart-review-system.git
+cd smart-review-system
 
-2. **エージェントのインストール**（他のPCでも簡単に使用可能）：
+# スラッシュコマンドとエージェントを自動登録
+npm run register
 
-   **方法1: 自動インストール（推奨）**
-   ```bash
-   # プロジェクト初期化と同時にエージェントをインストール
-   node init-smart-review.js
-   
-   # または、手動でエージェントのみインストール
-   node install-agents.js
-   ```
+# 動作確認
+claude-code /smart-review --help
+```
 
-   **方法2: 既存エージェントの確認**
-   ```bash
-   # システムテストでエージェント状態を確認
-   claude-code smart-review --test
-   ```
+これだけで完了です！🎉
 
-   **必要なエージェント**:
-   - security-error-xss-analyzer（セキュリティ分析）
-   - super-debugger-perfectionist（デバッグ分析）
-   - deep-code-reviewer（コード品質）
-   - project-documentation-updater（ドキュメント）
-   - code-comment-annotator-ja（日本語化・オプション）
+### 詳細セットアップ
 
-3. エージェントが正常にインストールされたことを確認
+#### 1. 初期化（全自動）
+```bash
+npm run init
+```
+
+#### 2. スラッシュコマンド登録
+```bash
+# コマンドを登録
+npm run register
+
+# 登録状況を確認
+npm run register:status
+
+# アンインストール
+npm run unregister
+```
+
+#### 3. エージェント管理
+```bash
+# エージェントをインストール
+npm run install-agents
+
+# エージェント一覧
+npm run list-agents
+
+# エージェントをアンインストール
+npm run uninstall-agents
+```
+
 
 ## クイックスタート
 
-### 🆕 対話式メニューの使い方（推奨）
+### 🆕 スラッシュコマンドの使い方
+
+Smart Reviewは Claude Code のスラッシュコマンドとして使用できます：
+
+```bash
+# 対話式メニューの起動
+claude-code /smart-review
+
+# エイリアスも使用可能
+claude-code /review
+claude-code /sr
+```
+
+### 対話式メニューの使い方（推奨）
 
 最も簡単な使用方法は、オプションを指定せずにコマンドを実行することです：
 
 ```bash
-claude-code smart-review
+claude-code /smart-review
 ```
 
 これにより、以下の対話式メニューが表示されます：
@@ -871,10 +899,11 @@ claude-code smart-review --help
 
 ---
 
-*最終更新: 2025年08月14日 16:15 JST*
-*バージョン: v2.0.2*
+*最終更新: 2025年08月16日 10:30 JST*
+*バージョン: v2.1.0*
 
 **更新履歴:**
+- v2.1.0 (2025年08月16日): Claude Code スラッシュコマンド登録機能追加、他PCでの環境構築を簡易化
 - v2.0.2 (2025年08月14日): ドキュメントバージョン管理システムを導入、JST統一
 - v2.0.1 (2025年08月14日): エージェント自動インストール機能追加
 - v2.0.0 (2025年08月13日): Smart Review v2.0 対話式メニューシステム実装

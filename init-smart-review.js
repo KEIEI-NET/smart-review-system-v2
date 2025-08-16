@@ -502,7 +502,6 @@ class SmartReviewInitializer {
               installedCount++;
             }
           }
-          
         } catch (error) {
           console.log(`  ❌ ${agentName}: インストール失敗 - ${error.message}`);
         }

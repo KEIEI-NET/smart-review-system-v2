@@ -1,0 +1,110 @@
+{
+  "version": "2.1.0",
+  "lastUpdated": "2025-01-16T10:30:00+09:00",
+  "minimumNodeVersion": "14.0.0",
+  "minimumClaudeCodeVersion": "1.0.0",
+  "components": {
+    "commands": {
+      "smart-review-v2.js": {
+        "version": "2.1.0",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 0,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "メインのスマートレビューコマンド",
+        "critical": true
+      },
+      "smart-review-config.js": {
+        "version": "1.0.0",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 0,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "設定管理モジュール",
+        "critical": true
+      }
+    },
+    "agents": {
+      "security-error-xss-analyzer.md": {
+        "version": "1.0.0",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 5560,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "セキュリティ脆弱性検出エージェント",
+        "critical": true
+      },
+      "super-debugger-perfectionist.md": {
+        "version": "1.0.0",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 3516,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "完璧主義デバッガーエージェント",
+        "critical": true
+      },
+      "deep-code-reviewer.md": {
+        "version": "1.0.0",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 3522,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "深層コードレビューエージェント",
+        "critical": true
+      },
+      "project-documentation-updater.md": {
+        "version": "1.0.1",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 6584,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "プロジェクトドキュメント更新エージェント",
+        "critical": false
+      },
+      "code-comment-annotator-ja.md": {
+        "version": "1.0.0",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 4826,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "日本語コメント注釈エージェント",
+        "critical": false
+      }
+    },
+    "scripts": {
+      "register-slash-command-v2.js": {
+        "version": "2.0.0",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 0,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "スラッシュコマンド登録スクリプト",
+        "critical": false
+      },
+      "install-agents.js": {
+        "version": "1.0.0",
+        "sha256": "placeholder_will_be_calculated",
+        "size": 0,
+        "lastModified": "2025-01-16T10:30:00+09:00",
+        "description": "エージェント管理スクリプト",
+        "critical": false
+      }
+    }
+  },
+  "updatePolicy": {
+    "autoUpdate": true,
+    "checkInterval": 86400000,
+    "backupBeforeUpdate": true,
+    "maxBackups": 3,
+    "allowPrerelease": false
+  },
+  "changelog": {
+    "2.1.0": {
+      "date": "2025-01-16",
+      "changes": [
+        "バージョン管理システムの追加",
+        "差分更新機能の実装",
+        "セキュリティ強化"
+      ]
+    },
+    "2.0.0": {
+      "date": "2025-01-14",
+      "changes": [
+        "対話式メニューシステムの実装",
+        "エージェント自動インストール機能"
+      ]
+    }
+  }
+}

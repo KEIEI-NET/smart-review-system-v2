@@ -11,6 +11,13 @@
   "scripts": {
     "start": "node smart-review-v2.js",
     "init": "node init-smart-review.js",
+    "register": "node register-slash-command-v2.js",
+    "register:status": "node register-slash-command-v2.js status",
+    "register:verify": "node register-slash-command-v2.js verify",
+    "update": "node smart-updater.js",
+    "update:check": "node smart-updater.js check",
+    "update:status": "node smart-updater.js status",
+    "unregister": "node register-slash-command-v2.js uninstall",
     "install-agents": "node install-agents.js",
     "list-agents": "node install-agents.js list",
     "uninstall-agents": "node install-agents.js uninstall",

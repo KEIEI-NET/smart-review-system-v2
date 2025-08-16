@@ -1,0 +1,403 @@
+<mxfile host="app.diagrams.net" modified="2025-01-15T10:50:00.000Z" agent="5.0" version="24.7.8" etag="install-guide" type="device">
+  <diagram name="install-guide-flow" id="install-guide-flow">
+    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Smart Review System インストールフロー図" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=20;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="500" y="30" width="500" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="subtitle" value="INSTALL.md ビジュアルガイド" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="600" y="70" width="300" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Start -->
+        <mxCell id="start" value="🚀 インストール開始" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="120" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- System Requirements Section -->
+        <mxCell id="sysreq" value="📋 システム要件確認" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="240" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reqcheck1" value="Node.js&#10;v14.0.0以上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="450" y="330" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reqcheck2" value="npm&#10;v6.0.0以上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="570" y="330" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reqcheck3" value="Git&#10;v2.0.0以上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="690" y="330" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reqcheck4" value="Claude Code&#10;最新版" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="810" y="330" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reqbranch" value="要件満たす？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="650" y="420" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reqinstall" value="⚠️ 不足ソフトウェア&#10;インストール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="950" y="430" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Quick Install Path -->
+        <mxCell id="quickpath" value="🚄 クイックインストール&#10;（推奨）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="450" y="540" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quickcmd" value="git clone [URL]&#10;cd smart-review-system&#10;node init-smart-review.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontFamily=Courier New;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="430" y="640" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Detailed Install Path -->
+        <mxCell id="detailpath" value="📝 詳細インストール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="720" y="540" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step1" value="Step 1&#10;リポジトリクローン" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="740" y="640" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step2" value="Step 2&#10;依存関係インストール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="740" y="710" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step3" value="Step 3&#10;初期セットアップ実行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="740" y="780" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step4" value="Step 4&#10;Windows権限設定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="740" y="850" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Auto Setup Process -->
+        <mxCell id="autosetup" value="🔄 自動セットアップ処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="940" width="250" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auto1" value="✅ 環境チェック" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="280" y="1040" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auto2" value="📁 ディレクトリ作成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="420" y="1040" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auto3" value="🔗 コマンドリンク" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="560" y="1040" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auto4" value="⚙️ 設定生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="700" y="1040" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auto5" value="📦 package.json更新" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="840" y="1040" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auto6" value="🤖 エージェント&#10;インストール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="980" y="1040" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent Installation -->
+        <mxCell id="agentinstall" value="🤖 エージェントインストール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="1120" width="250" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent1" value="security-error-xss-analyzer&#10;セキュリティ分析" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="280" y="1220" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent2" value="super-debugger-perfectionist&#10;完璧主義デバッグ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="440" y="1220" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent3" value="deep-code-reviewer&#10;深層コードレビュー" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="600" y="1220" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent4" value="project-documentation-updater&#10;ドキュメント更新" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="760" y="1220" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent5" value="code-comment-annotator-ja&#10;日本語コメント" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="920" y="1220" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Configuration -->
+        <mxCell id="config" value="⚙️ 設定ファイルセットアップ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="1300" width="250" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="configfile" value=".smart-review.json&#10;設定ファイル作成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="460" y="1400" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="envvars" value="環境変数設定&#10;（オプション）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="630" y="1400" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="npmscripts" value="npm scripts&#10;登録完了" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="800" y="1400" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Verification -->
+        <mxCell id="verify" value="✅ 動作確認" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="1490" width="250" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="verifytest" value="システムテスト&#10;node smart-review-v2.js --test" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontFamily=Courier New;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="390" y="1590" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="verifyhelp" value="ヘルプ表示&#10;node smart-review-v2.js --help" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontFamily=Courier New;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="610" y="1590" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="verifynpm" value="npm実行テスト&#10;npm run review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontFamily=Courier New;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="830" y="1590" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Success -->
+        <mxCell id="success" value="🎉 インストール完了！&#10;Smart Review System 準備OK" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="550" y="1680" width="250" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Troubleshooting Box -->
+        <mxCell id="troubleshoot" value="🔧 トラブルシューティング&#10;&#10;• Claude Code未検出 → npm install&#10;• 権限エラー → 管理者権限実行&#10;• エージェント不明 → 再インストール&#10;• 設定エラー → JSON構文確認" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=left;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="50" y="540" width="250" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- OS Support Box -->
+        <mxCell id="osbox" value="📱 対応OS&#10;&#10;✅ Windows 10/11&#10;✅ macOS 10.15+&#10;✅ Linux (Ubuntu/CentOS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;align=left;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1150" y="240" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Uninstall Box -->
+        <mxCell id="uninstall" value="🗑️ アンインストール&#10;&#10;1. エージェント削除&#10;2. 設定ファイル削除&#10;3. キャッシュクリア&#10;4. npmスクリプト削除" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=left;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1150" y="1400" width="180" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Flow Arrows -->
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="start" target="sysreq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="sysreq" target="reqcheck1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="sysreq" target="reqcheck2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="sysreq" target="reqcheck3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="sysreq" target="reqcheck4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="reqcheck1" target="reqbranch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="reqcheck2" target="reqbranch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="reqcheck3" target="reqbranch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="reqcheck4" target="reqbranch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="reqbranch" target="reqinstall">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow10label" value="いいえ" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000" vertex="1" connectable="0" parent="arrow10">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="reqbranch" target="quickpath">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow11label" value="はい" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000" vertex="1" connectable="0" parent="arrow11">
+          <mxGeometry x="-0.1" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="reqbranch" target="detailpath">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="quickpath" target="quickcmd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="detailpath" target="step1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="step3" target="step4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="quickcmd" target="autosetup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="step4" target="autosetup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="autosetup" target="auto1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="autosetup" target="auto2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="autosetup" target="auto3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="autosetup" target="auto4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="autosetup" target="auto5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="autosetup" target="auto6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="auto6" target="agentinstall">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="agentinstall" target="agent1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="agentinstall" target="agent2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="agentinstall" target="agent3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="agentinstall" target="agent4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="agentinstall" target="agent5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="agent1" target="config">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="agent3" target="config">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="agent5" target="config">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="config" target="configfile">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="config" target="envvars">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="config" target="npmscripts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="configfile" target="verify">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="envvars" target="verify">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="npmscripts" target="verify">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="verify" target="verifytest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="verify" target="verifyhelp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="verify" target="verifynpm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="verifytest" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="verifyhelp" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000" edge="1" parent="1" source="verifynpm" target="success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Back Arrow from reqinstall -->
+        <mxCell id="arrow47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;dashed=1" edge="1" parent="1" source="reqinstall" target="reqbranch">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1025" y="410" />
+              <mxPoint x="870" y="410" />
+              <mxPoint x="870" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="📊 凡例&#10;&#10;━━ メインフロー&#10;┅┅ フィードバック&#10;&#10;🚄 クイックパス&#10;📝 詳細パス&#10;🔄 自動処理&#10;✅ 検証&#10;🎉 完了" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=left;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="150" height="150" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
