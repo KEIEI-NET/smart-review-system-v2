@@ -80,7 +80,7 @@ module.exports = {
 🔍 Smart Review v2.0 - インテリジェントコードレビュー自動化システム
 
 📖 使用方法:
-  claude-code smart-review [オプション]
+  claude smart-review [オプション]
   
 📋 オプション:
   --scope <changes|all>          チェック範囲
@@ -458,7 +458,7 @@ const performance = await configManager.getPerformanceSettings();
 
 ```javascript
 static get ALLOWED_COMMANDS() {
-  return ['git', 'mkdir', 'claude-code'];
+  return ['git', 'mkdir', 'claude'];
 }
 ```
 

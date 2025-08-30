@@ -92,7 +92,7 @@ node ~/.claude/commands/init-smart-review.js
 #### 0. 初回セットアップ（システムテスト）
 ```bash
 # 環境の動作確認
-claude-code smart-review --test
+claude smart-review --test
 
 # 問題がなければ次へ進む
 ```
@@ -100,10 +100,10 @@ claude-code smart-review --test
 #### 1. 開発開始時（対話式メニュー使用）
 ```bash
 # 対話式メニューで選択
-claude-code smart-review
+claude smart-review
 
 # または直接実行
-claude-code smart-review --scope all
+claude smart-review --scope all
 ```
 
 #### 2. コミット前（差分チェック）
@@ -112,7 +112,7 @@ claude-code smart-review --scope all
 npm run review:fix
 
 # または
-claude-code smart-review --scope changes
+claude smart-review --scope changes
 ```
 
 #### 3. リリース前（セキュリティチェック）
@@ -121,7 +121,7 @@ claude-code smart-review --scope changes
 npm run review:security
 
 # または
-claude-code smart-review --scope all --priority-threshold critical
+claude smart-review --scope all --priority-threshold critical
 ```
 
 ### 推奨ワークフロー
@@ -246,7 +246,7 @@ export SMART_REVIEW_MAX_CONCURRENCY=2
 新しいプロジェクトや環境で問題が発生した場合、まずシステムテストを実行：
 
 ```bash
-claude-code smart-review --test
+claude smart-review --test
 ```
 
 このコマンドは以下をチェックします：
@@ -355,11 +355,11 @@ npm run review
 
 ```bash
 # セキュリティとバグのみチェック（高速）
-claude-code smart-review --scope all \
+claude smart-review --scope all \
   --disable-agents "documentation-updater,deep-code-reviewer"
 
 # キャッシュを活用した差分チェック
-claude-code smart-review --scope changes --use-cache
+claude smart-review --scope changes --use-cache
 ```
 
 ### 3. メトリクス監視

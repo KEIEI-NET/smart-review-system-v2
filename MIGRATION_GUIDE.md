@@ -82,7 +82,7 @@ module.exports = {
 const gitCommand = `git diff --name-only --since="${lastCheckTime}"`;
 await terminal.run(gitCommand);
 
-const agentCommand = `claude-code agent run ${agent.id} --target "${target}"`;
+const agentCommand = `claude agent run ${agent.id} --target "${target}"`;
 await terminal.run(agentCommand);
 ```
 
@@ -95,7 +95,7 @@ const gitResult = await SecurityUtils.executeCommand('git', [
   '--since', lastCheckTime.toISOString()
 ]);
 
-const agentResult = await SecurityUtils.executeCommand('claude-code', [
+const agentResult = await SecurityUtils.executeCommand('claude', [
   'agent', 'run', agent.id,
   '--target', validatedTarget,
   '--model', agent.model
@@ -183,7 +183,7 @@ node smart-review.js --version
 // config/security.js
 module.exports = {
   // Command execution security
-  allowedCommands: ['git', 'mkdir', 'claude-code'],
+  allowedCommands: ['git', 'mkdir', 'claude'],
   commandTimeout: 60000,
   maxBuffer: 10 * 1024 * 1024,
   
@@ -273,7 +273,7 @@ const execute = async (context, args) => {
   const files = await getChangedFiles(target);
   
   for (const agent of agents) {
-    const command = `claude-code agent run ${agent.id}`;
+    const command = `claude agent run ${agent.id}`;
     const result = await terminal.run(command);
     // Process result
   }
@@ -622,7 +622,7 @@ v2.0 introduces a revolutionary interactive menu system that makes Smart Review 
 Simply run the command without any options:
 
 ```bash
-claude-code smart-review
+claude smart-review
 ```
 
 ### Available Menu Options
@@ -666,7 +666,7 @@ When selecting "Custom Configuration", users are guided through:
 Access comprehensive help documentation:
 
 ```bash
-claude-code smart-review --help
+claude smart-review --help
 ```
 
 This displays:

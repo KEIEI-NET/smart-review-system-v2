@@ -84,7 +84,7 @@ npm install
 
 ## 実行時エラー
 
-### 症状: `command not found: claude-code`
+### 症状: `command not found: claude`
 
 **原因:** Claude Code CLIがインストールされていない
 
@@ -276,7 +276,7 @@ npm run register
 npm run install-agents
 
 # 5. 動作確認
-claude-code /smart-review --test
+claude /smart-review --test
 ```
 
 ### バックアップからの復元
@@ -296,7 +296,7 @@ mkdir -p ~/.claude
 cp -r ~/.claude/.smart-review-backup/$BACKUP_DIR/* ~/.claude/
 
 # 5. 動作確認
-claude-code /smart-review --help
+claude /smart-review --help
 ```
 
 ---
@@ -348,7 +348,7 @@ DEBUG=1 npm run register
 echo "=== System Info ===" > debug-info.txt
 node --version >> debug-info.txt
 npm --version >> debug-info.txt
-claude-code --version >> debug-info.txt 2>&1
+claude --version >> debug-info.txt 2>&1
 echo "=== Directory Structure ===" >> debug-info.txt
 ls -la ~/.claude/ >> debug-info.txt 2>&1
 echo "=== Error Log ===" >> debug-info.txt

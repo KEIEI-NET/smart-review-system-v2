@@ -76,7 +76,7 @@ cd smart-review-system
 npm run register
 
 # 動作確認
-claude-code /smart-review --help
+claude /smart-review --help
 ```
 
 これだけで完了です！🎉
@@ -121,11 +121,11 @@ Smart Reviewは Claude Code のスラッシュコマンドとして使用でき�
 
 ```bash
 # 対話式メニューの起動
-claude-code /smart-review
+claude /smart-review
 
 # エイリアスも使用可能
-claude-code /review
-claude-code /sr
+claude /review
+claude /sr
 ```
 
 ### 対話式メニューの使い方（推奨）
@@ -133,7 +133,7 @@ claude-code /sr
 最も簡単な使用方法は、オプションを指定せずにコマンドを実行することです：
 
 ```bash
-claude-code /smart-review
+claude /smart-review
 ```
 
 これにより、以下の対話式メニューが表示されます：
@@ -237,22 +237,22 @@ claude-code /smart-review
 
 ```bash
 # ヘルプの表示
-claude-code smart-review --help
+claude smart-review --help
 
 # 前回のチェック以降のすべての変更をレビュー
-claude-code smart-review --scope changes
+claude smart-review --scope changes
 
 # プロジェクト全体のスキャン
-claude-code smart-review --scope all
+claude smart-review --scope all
 
 # 特定ディレクトリのレビュー
-claude-code smart-review --target ./src
+claude smart-review --target ./src
 
 # カスタム優先度しきい値でレビュー
-claude-code smart-review --priority-threshold high
+claude smart-review --priority-threshold high
 
 # 複数オプションの組み合わせ
-claude-code smart-review --scope all --target ./src --priority-threshold critical
+claude smart-review --scope all --target ./src --priority-threshold critical
 ```
 
 ## 🤖 エージェント管理
@@ -277,7 +277,7 @@ npm run list-agents
 npm run uninstall-agents
 
 # エージェント状態の確認
-claude-code smart-review --test
+claude smart-review --test
 ```
 
 ### 個別エージェントの制御
@@ -630,10 +630,10 @@ const issuePatterns = {
 **解決策**:
 ```bash
 # エージェントのインストールを確認
-claude-code agent list
+claude agent list
 
 # 不足しているエージェントをインストール
-claude-code agent install security-error-xss-analyzer
+claude agent install security-error-xss-analyzer
 
 # smart-review.jsのエージェントパスを更新
 ```
@@ -652,7 +652,7 @@ git add .
 git commit -m "Initial commit"
 
 # smart-reviewを再試行
-claude-code smart-review --scope changes
+claude smart-review --scope changes
 ```
 
 #### 3. メモリ/パフォーマンスの問題
@@ -911,13 +911,13 @@ function validatePath(userPath, baseDir) {
 ### ⚡ クイックヘルプ
 ```bash
 # システムテストでトラブルシューティング
-claude-code smart-review --test
+claude smart-review --test
 
 # 対話式メニューでガイド付き実行
-claude-code smart-review
+claude smart-review
 
 # 詳細ヘルプ表示
-claude-code smart-review --help
+claude smart-review --help
 ```
 
 ---

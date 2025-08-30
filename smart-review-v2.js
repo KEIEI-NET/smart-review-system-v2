@@ -968,7 +968,7 @@ module.exports = {
 🔍 Smart Review v2.0 - インテリジェントコードレビュー自動化システム
 
 📖 使用方法:
-  claude-code smart-review [オプション]
+  claude smart-review [オプション]
 
 📋 オプション:
   --scope <changes|all>          チェック範囲 (デフォルト: changes)
@@ -1000,16 +1000,16 @@ module.exports = {
 
 🚀 使用例:
   • 基本的な変更チェック:
-    claude-code smart-review
+    claude smart-review
 
   • プロジェクト全体のセキュリティ監査:
-    claude-code smart-review --scope all --priority-threshold critical
+    claude smart-review --scope all --priority-threshold critical
 
   • 特定ディレクトリの詳細レビュー:
-    claude-code smart-review --scope all --target ./src --priority-threshold high
+    claude smart-review --scope all --target ./src --priority-threshold high
 
   • CI/CD統合:
-    claude-code smart-review --scope changes --skip-comment --max-iterations 3
+    claude smart-review --scope changes --skip-comment --max-iterations 3
 
 🔧 機能:
   ✅ セキュリティ脆弱性の検出（XSS、SQLインジェクション等）

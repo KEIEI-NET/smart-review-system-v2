@@ -23,7 +23,7 @@
 | **Node.js** | v14.0.0以上 | `node --version` |
 | **npm** | v6.0.0以上 | `npm --version` |
 | **Git** | v2.0.0以上 | `git --version` |
-| **Claude Code** | 最新版 | `claude-code --version` |
+| **Claude Code** | 最新版 | `claude --version` |
 
 ### 対応OS
 
@@ -239,7 +239,7 @@ npm run review:fix      # 自動修正モード
 #### 1. Claude Codeが見つからない
 
 ```bash
-# エラー: claude-code command not found
+# エラー: claude command not found
 
 # 解決方法:
 # Claude Codeをインストール

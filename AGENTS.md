@@ -71,7 +71,7 @@ npm run install-agents
 
 ```bash
 # システムテストでエージェント確認
-claude-code smart-review --test
+claude smart-review --test
 
 # インストール済みエージェントの一覧表示
 npm run list-agents

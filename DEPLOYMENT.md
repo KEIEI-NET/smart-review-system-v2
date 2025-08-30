@@ -102,7 +102,7 @@ smart-review-system/
 ### 🎯 公開後のアクション
 
 1. **About セクション**の編集
-   - タグ追加: `code-review`, `security`, `claude-code`, `automation`
+   - タグ追加: `code-review`, `security`, `claude`, `automation`
    - ウェブサイトURL設定
 
 2. **Releases**の作成
