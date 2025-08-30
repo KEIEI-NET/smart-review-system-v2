@@ -72,7 +72,7 @@ class SecurityUtils {
     } = options;
     
     // コマンドのホワイトリスト
-    const allowedCommands = ['git', 'mkdir', 'claude-code'];
+    const allowedCommands = ['git', 'mkdir', 'claude-code', 'claude'];
     if (!allowedCommands.includes(command)) {
       throw new Error(`許可されていないコマンド: ${command}`);
     }
@@ -107,6 +107,20 @@ class SecurityUtils {
 }
 
 // 入力検証クラス
+// Helper function to get available Claude command
+async function getClaudeCommand() {
+  const claudeCommands = ['claude-code', 'claude'];
+  for (const cmd of claudeCommands) {
+    try {
+      await SecurityUtils.executeCommand(cmd, ['--version'], { timeout: 1000 });
+      return cmd;
+    } catch (error) {
+      // Try next command
+    }
+  }
+  throw new Error('Claude Code/Claudeコマンドが見つかりません');
+}
+
 class InputValidator {
   static validateString(input, options = {}) {
     const { 
@@ -379,7 +393,9 @@ module.exports = {
             commandArgs.push('--iteration', String(iteration));
           }
           
-          const result = await SecurityUtils.executeCommand('claude-code', commandArgs, { 
+          // Claude コマンド名を動的に検出
+          const claudeCmd = await getClaudeCommand();
+          const result = await SecurityUtils.executeCommand(claudeCmd, commandArgs, { 
             timeout: 120000  // 2分のタイムアウト
           });
           
@@ -719,7 +735,9 @@ module.exports = {
               '--add-comments'
             ];
             
-            const result = await SecurityUtils.executeCommand('claude-code', commentArgs, {
+            // Claude コマンド名を動的に検出
+            const claudeCmd = await getClaudeCommand();
+            const result = await SecurityUtils.executeCommand(claudeCmd, commentArgs, {
               timeout: 180000  // 3分のタイムアウト
             });
             

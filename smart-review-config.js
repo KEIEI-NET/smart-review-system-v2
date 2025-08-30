@@ -393,7 +393,7 @@ class SmartReviewConfig {
 // Config定数クラス（互換性のため）
 class Config {
   static get ALLOWED_COMMANDS() {
-    return ['git', 'mkdir', 'claude-code'];
+    return ['git', 'mkdir', 'claude-code', 'claude'];
   }
   
   static get ALLOWED_OUTPUT_BASE() {

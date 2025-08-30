@@ -30,7 +30,13 @@
     "security-fix": "npm audit fix",
     "validate-config": "node -e \"require('./smart-review-config.js').configManager.loadConfig().then(()=>console.log('✅ 設定ファイル検証OK')).catch(e=>console.error('❌ 設定エラー:', e.message))\"",
     "check-deps": "npx check-dependencies",
-    "pre-commit": "npm run lint && npm run test && npm run security-audit && npm run validate-config"
+    "pre-commit": "npm run lint && npm run test && npm run security-audit && npm run validate-config",
+    "review": "claude-code smart-review",
+    "review:fix": "claude-code smart-review --scope changes",
+    "review:quick": "claude-code smart-review --scope all --priority-threshold high",
+    "review:security": "claude-code smart-review --scope all --priority-threshold critical",
+    "review:test": "claude-code smart-review --test",
+    "review:help": "claude-code smart-review --help"
   },
   "keywords": [
     "code-review",
@@ -88,7 +94,7 @@
   "security": {
     "advisories": {
       "moderate": "error",
-      "high": "error", 
+      "high": "error",
       "critical": "error"
     }
   },

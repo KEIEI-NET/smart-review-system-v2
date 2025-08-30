@@ -218,11 +218,22 @@ class SlashCommandRegistrar {
     }
     console.log(`  ✅ Node.js: ${nodeVersion}`);
 
-    // Claude Codeのチェック
-    try {
-      const result = await this.execFile('claude-code', ['--version']);
-      console.log(`  ✅ Claude Code: インストール済み`);
-    } catch (error) {
+    // Claude Codeのチェック (複数のコマンド名をサポート)
+    const claudeCommands = ['claude-code', 'claude'];
+    let claudeFound = false;
+    
+    for (const cmd of claudeCommands) {
+      try {
+        const result = await this.execFile(cmd, ['--version']);
+        console.log(`  ✅ Claude Code (${cmd}): インストール済み`);
+        claudeFound = true;
+        break;
+      } catch (error) {
+        // 次のコマンドを試す
+      }
+    }
+    
+    if (!claudeFound) {
       console.warn('  ⚠️  Claude Code が見つかりません');
       console.log('     インストール: npm install -g @anthropic/claude-code');
       console.log('     または: https://claude.ai/code からダウンロード');

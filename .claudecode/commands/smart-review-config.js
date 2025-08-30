@@ -1,0 +1,1 @@
+/Users/kenji/.claude/commands/smart-review-config.js

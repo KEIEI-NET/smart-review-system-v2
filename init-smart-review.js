@@ -95,11 +95,23 @@ class SmartReviewInitializer {
   async checkEnvironment() {
     console.log('📋 環境をチェック中...');
     
-    // Claude Codeの存在確認
-    try {
-      await execFileAsync('claude-code', ['--version']);
+    // Claude Codeの存在確認 (複数のコマンド名をチェック)
+    const claudeCommands = ['claude-code', 'claude'];
+    let claudeFound = false;
+    
+    for (const cmd of claudeCommands) {
+      try {
+        await execFileAsync(cmd, ['--version']);
+        claudeFound = true;
+        break;
+      } catch (error) {
+        // このコマンドは見つからなかった、次を試す
+      }
+    }
+    
+    if (claudeFound) {
       console.log('  ✅ Claude Code が検出されました');
-    } catch {
+    } else {
       console.error('  ❌ Claude Code が見つかりません。インストールしてください。');
       process.exit(1);
     }
@@ -151,9 +163,9 @@ class SmartReviewInitializer {
   async linkGlobalCommands() {
     console.log('🔗 グローバルコマンドをリンク中...');
     
+    // 必須コマンドのみをチェック（smart-review.jsは存在しない場合があるため除外）
     const commands = [
       'smart-review-v2.js',  // 最新版（対話式メニュー付き）
-      'smart-review.js',     // 標準版
       'smart-review-config.js'  // 設定管理モジュール
     ];
     

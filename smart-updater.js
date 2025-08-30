@@ -575,7 +575,7 @@ class SmartUpdater {
     
     if (this.stats.updated > 0 || this.stats.newInstalls > 0) {
       console.log('\n✅ 更新が完了しました！');
-      console.log('💡 変更を確認するには: claude-code /smart-review --help');
+      console.log('💡 変更を確認するには: claude /smart-review --help');
     }
     
     console.log('═'.repeat(60));

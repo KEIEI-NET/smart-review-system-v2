@@ -472,7 +472,8 @@ class AgentSandbox {
     commandArgs.push('--max-memory', String(this.maxMemory));
     commandArgs.push('--timeout', String(this.timeout));
     
-    const result = await SecurityUtils.executeCommand('claude-code', commandArgs, {
+    const claudeCmd = await module.exports.getClaudeCommand();
+    const result = await SecurityUtils.executeCommand(claudeCmd, commandArgs, {
       timeout: this.timeout
     });
     
@@ -882,6 +883,20 @@ module.exports = {
   name: 'smart-review',
   description: '変更点または全体をチェックし、修正またはTODOリストを生成（セキュリティ強化版）',
   
+  // Helper method to get available Claude command
+  async getClaudeCommand() {
+    const claudeCommands = ['claude-code', 'claude'];
+    for (const cmd of claudeCommands) {
+      try {
+        await SecurityUtils.executeCommand(cmd, ['--version'], { timeout: 1000 });
+        return cmd;
+      } catch (error) {
+        // Try next command
+      }
+    }
+    throw new Error('Claude Code/Claudeコマンドが見つかりません');
+  },
+  
   options: [
     {
       name: 'scope',
@@ -1268,7 +1283,8 @@ module.exports = {
     
     // 4. Claude CLIチェック
     try {
-      const claudeCheck = await SecurityUtils.executeCommand('claude-code', ['--version']);
+      const claudeCmd = await module.exports.getClaudeCommand();
+      const claudeCheck = await SecurityUtils.executeCommand(claudeCmd, ['--version']);
       if (claudeCheck.success) {
         testResults.push({ test: 'Claude CLI', status: '✅', detail: 'インストール済み' });
       } else {
@@ -1807,7 +1823,8 @@ module.exports = {
               '--sandbox-mode'
             ];
             
-            const result = await SecurityUtils.executeCommand('claude-code', commentArgs, {
+            const claudeCmd = await module.exports.getClaudeCommand();
+            const result = await SecurityUtils.executeCommand(claudeCmd, commentArgs, {
               timeout: Config.COMMENT_TIMEOUT
             });
             

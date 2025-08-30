@@ -75,3 +75,9 @@ secrets/
 
 # Claude設定（ローカル設定）
 .claude/settings.local.json
+# Smart Review
+smart-review-results/
+.smart-review-cache/
+*.smart-review.backup-*
+TODO-*.md
+report-*.html
